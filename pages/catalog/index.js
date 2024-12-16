@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+
 export default function Catalog() {
   const catalogItems = [
     {
@@ -34,16 +35,21 @@ export default function Catalog() {
 
 
       <main className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-8 text-center">Catalog</h1>
-
+      <div className="flex lg:gap-0 gap-6 flex-wrap justify-between items-center">
+        <div className="flex items-center gap-3">
+        <h1 className="text-4xl font-bold mb-8 text-left">Exhibitions</h1>
+        </div>
+        <div className="flex flex-wrap items-center gap-2"> 
+          <h1>search button</h1>
+        </div>
+        </div>
         <div className="grid md:grid-cols-3 gap-8">
           {catalogItems.map((item) => (
             <div 
               key={item.id} 
-              className="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
-            >
+              className="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
               <img 
-                src={`/api/placeholder/400/300`} 
+                src="/img/400px.png"
                 alt={item.title} 
                 className="w-full h-64 object-cover"
               />
@@ -62,7 +68,6 @@ export default function Catalog() {
           ))}
         </div>
       </main>
-
     </div>
   )
 }

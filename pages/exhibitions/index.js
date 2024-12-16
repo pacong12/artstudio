@@ -1,52 +1,79 @@
-import React from 'react'
-import Head from 'next/head'
+import { useState } from 'react';
+import Head from 'next/head';
+import Tabs from '@/components/tabs';
 
 export default function Exhibitions() {
   const exhibitions = [
     {
       id: 1,
       title: 'THE ART OF ASS IN THE SKY',
-      artist: 'Alanoid',
-      year: 2024,
+      location: 'Alanoid',
+      startDate: "2024-10-12",
+      endDate: "2024-11-14",
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
     },
     {
       id: 2,
       title: 'Another Exciting Exhibition',
-      artist: 'Jane Doe',
-      year: 2024,
+      location: 'Jane Doe',
+      startDate: "2024-12-12",
+      endDate: "2025-01-14",
       description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
     },
     {
       id: 3,
       title: 'Modern Art Showcase',
-      artist: 'John Smith',
-      year: 2024,
+      location: 'John Smith',
+      startDate: "2025-01-12",
+      endDate: "2025-02-14",
       description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
     },
     {
       id: 4,
       title: 'Modern Art Showcase',
-      artist: 'John Smith',
-      year: 2024,
+      location: 'John Smith',
+      startDate: "2024-12-12",
+      endDate: "2025-01-14",
       description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
     },
     {
       id: 5,
       title: 'Modern Art Showcase',
-      artist: 'John Smith',
-      year: 2024,
+      location: 'John Smith',
+      startDate: "2024-12-12",
+      endDate: "2025-01-14",
       description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
     },
     {
       id: 6,
       title: 'Modern Art Showcase',
-      artist: 'John Smith',
-      year: 2024,
+      location: 'John Smith',
+      startDate: "2024-12-12",
+      endDate: "2025-01-14",
       description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
     }
-  
-  ]
+  ];
+
+  const [filter, setFilter] = useState('All');
+
+  const currentDate = new Date();
+
+  // Filter exhibitions berdasarkan kategori
+  const filteredExhibitions = exhibitions.filter((exhibition) => {
+    switch (filter) {
+      case 'Upcoming':
+        return new Date(exhibition.startDate) > currentDate;
+      case 'Ongoing':
+        return (
+          new Date(exhibition.startDate) <= currentDate &&
+          new Date(exhibition.endDate) >= currentDate
+        );
+      case 'Recent':
+        return new Date(exhibition.endDate) < currentDate;
+      default:
+        return true; // All
+    }
+  });
 
   return (
     <div className="min-h-screen bg-white">
@@ -55,37 +82,35 @@ export default function Exhibitions() {
         <meta name="description" content="Current and Upcoming Exhibitions" />
       </Head>
 
-
       <main className="container mx-auto px-4 py-12">
+        <div className="flex lg:gap-0 gap-6 flex-wrap justify-between items-center">
+        <div className="flex items-center gap-3">
         <h1 className="text-4xl font-bold mb-8 text-left">Exhibitions</h1>
-
+        </div>
+        <div className="flex flex-wrap items-center gap-2"> <Tabs setFilter={setFilter} />
+        </div>
+        </div>
+        
+       
         <div className="grid md:grid-cols-4 gap-8">
-          {exhibitions.map((exhibition) => (
-            <div 
-              key={exhibition.id} 
-              className="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition"
-            >
-              <img 
-                src={`/api/placeholder/400/300`} 
-                alt={exhibition.title} 
+          {filteredExhibitions.map((exhibition) => (
+            <div key={exhibition.id} className="rounded-lg overflow-hidden transition">
+              <img
+                src="/img/400px.png"
+                alt={exhibition.title}
                 className="w-full h-64 object-cover"
               />
-              <div className="p-6">
-                <h2 className="text-2xl font-semibold mb-2">
-                  {exhibition.title}
-                </h2>
-                <p className="text-gray-600 mb-4">
-                  {exhibition.year} By {exhibition.artist}
+              <div className="p-2">
+                <h2 className="text-xl font-semibold mb-2">{exhibition.title}</h2>
+                <p className="text-gray-600 mb-0">
+                  {exhibition.startDate} - {exhibition.endDate}
                 </p>
-                <p className="text-gray-500">
-                  {exhibition.description}
-                </p>
+                <p className="text-gray-600 mb-0">{exhibition.location}</p>
               </div>
             </div>
           ))}
         </div>
       </main>
-
     </div>
-  )
+  );
 }
