@@ -1,4 +1,3 @@
-// components/Breadcrumb.js
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
@@ -12,18 +11,24 @@ const Breadcrumb = () => {
   }
 
   return (
-    <nav class = "px-8 py-0">
+    <nav className="px-8 py-0">
       <ul style={{ display: 'flex', listStyle: 'none', padding: 0 }}>
         <li>
-          <Link href="/">Home</Link>
+          <Link href="/">
+            Home
+          </Link>
         </li>
+
         {pathSegments.length > 0 && <span style={{ margin: '0 8px' }}>/</span>}
+
         {pathSegments.map((segment, index) => {
           const path = '/' + pathSegments.slice(0, index + 1).join('/');
+
           return (
-            <li key={path} style={{ display: 'flex' }}>
+            <li key={path} style={{ display: 'flex', alignItems: 'center' }}>
+              {index > 0 && <span style={{ margin: '0 8px' }}>/</span>} {/* Pemisah */}
               <Link href={path}>
-                {segment.charAt(0).toUpperCase() + segment.slice(1)}
+                {segment.charAt(0).toUpperCase() + segment.slice(1)} {/* Kapitalisasi */}
               </Link>
             </li>
           );

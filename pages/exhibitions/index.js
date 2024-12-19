@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
-import Tabs from '@/components/tabs';
+import Tabs from '@/components/Tabs';
+import Link from 'next/link';
 
 export default function Exhibitions() {
   const exhibitions = [
@@ -90,26 +91,26 @@ export default function Exhibitions() {
         <div className="flex flex-wrap items-center gap-2"> <Tabs setFilter={setFilter} />
         </div>
         </div>
-        
-       
-        <div className="grid md:grid-cols-4 gap-8">
-          {filteredExhibitions.map((exhibition) => (
-            <div key={exhibition.id} className="rounded-lg overflow-hidden transition">
-              <img
-                src="/img/400px.png"
-                alt={exhibition.title}
-                className="w-full h-64 object-cover"
-              />
-              <div className="p-2">
-                <h2 className="text-xl font-semibold mb-2">{exhibition.title}</h2>
-                <p className="text-gray-600 mb-0">
-                  {exhibition.startDate} - {exhibition.endDate}
-                </p>
-                <p className="text-gray-600 mb-0">{exhibition.location}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+          <div className="grid md:grid-cols-4 gap-8">
+            {filteredExhibitions.map((exhibition) => (
+              <Link key={exhibition.id} href={`/exhibitions/${exhibition.id}`} passHref>
+                <div className="rounded-lg overflow-hidden transition cursor-pointer">
+                  <img
+                    src="/img/400px.png"
+                    alt={exhibition.title}
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="p-2">
+                    <h2 className="text-xl font-semibold mb-2">{exhibition.title}</h2>
+                    <p className="text-gray-600 mb-0">
+                      {exhibition.startDate} - {exhibition.endDate}
+                    </p>
+                    <p className="text-gray-600 mb-0">{exhibition.location}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
       </main>
     </div>
   );

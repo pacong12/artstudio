@@ -14,8 +14,8 @@ const Tabs = ({ setFilter }) => {
         <button
           key={tab}
           onClick={() => handleTabChange(tab)}
-          className={`px-4 py-2 font-semibold  hover:text-gray-900${
-            activeTab === tab ? 'text-black' : 'text-gray-800'
+          className={`px-4 py-2 font-semibold  ${
+            activeTab === tab ? 'text-black hover:text-gray-900' : 'text-gray-500'
           }`}
         >
           {tab}

@@ -10,15 +10,15 @@ export default function Header() {
   ];
 
   return (
-    <header className="">
+    <header className="p-4">
      
       <div className="container mx-auto px-0 py-0 flex justify-center items-center">
-    <Link href="/" className="text-2xl font-bold text-gray-800">
+    <Link href="/" className="text-2xl font-bold text-white-800">
           Art Gallery
         </Link>
       </div>
-      <div className="container mx-auto px-4 py-3 flex justify-center items-center">
-        {/* <Link href="/" className="text-2xl font-bold text-gray-800">
+      <div className="container mx-auto  px-4 py-3 flex justify-center items-center">
+        {/* <Link href="/" className="text-2xl font-bold text-white-800">
           Art Gallery
         </Link> */}
         <nav className="space-x-4">
@@ -26,7 +26,7 @@ export default function Header() {
             <Link 
               key={item.href} 
               href={item.href} 
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className="text-white-600 hover:text-gray-900 transition-colors"
             >
               {item.label}
             </Link>
