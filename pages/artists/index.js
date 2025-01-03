@@ -9,28 +9,28 @@ export default function Artists() {
     {
       id: 1,
       name: 'Alan Nur',
-      nationality: 'Indonesian',
+      country: 'Indonesian',
       description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       exhibitions: ['THE ART OF ASS IN THE SKY']
     },
     {
       id: 2,
       name: 'Jane Doe',
-      nationality: 'American',
+      country: 'American',
       description: 'An innovative artist exploring modern themes.',
       exhibitions: ['Modern Art Showcase']
     },
     {
       id: 3,
       name: 'John Smith',
-      nationality: 'British',
+      country: 'British',
       description: 'Pushing the boundaries of contemporary art.',
       exhibitions: ['Emerging Talents']
     },
     {
       id: 4,
       name: 'Emily Clark',
-      nationality: 'British',
+      country: 'British',
       description: 'An abstract artist specializing in vibrant art.',
       exhibitions: ['Abstract Horizons']
     },
@@ -72,7 +72,7 @@ export default function Artists() {
                   className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                 />
                 <h2 className="text-2xl font-semibold mb-2">{artist.name}</h2>
-                <p className="text-gray-600 mb-0">{artist.nationality} </p>
+                <p className="text-gray-600 mb-0">{artist.country} </p>
                 <div className="mt-4">
                 {artist.exhibitions.map((exhibition) => (
                   <span 

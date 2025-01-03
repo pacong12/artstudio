@@ -5,13 +5,15 @@ import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  
-  // Render the Header component only on pages other than the homepage
+
+  // Sembunyikan Header dan Breadcrumb untuk halaman / dan semua rute di bawah /dashboard
+  const hidePage = router.pathname === "/" || router.pathname.startsWith("/dashboard") || router.pathname.startsWith("/auth");
+
   return (
     <>
-      {router.pathname !== "/" && <Header />}
+      {!hidePage && <Header />}
       <main>
-        <Breadcrumb />
+        {!hidePage && <Breadcrumb />}
         <Component {...pageProps} />
       </main>
     </>

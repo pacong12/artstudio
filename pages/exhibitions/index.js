@@ -11,7 +11,8 @@ export default function Exhibitions() {
       location: 'Alanoid',
       startDate: "2024-10-12",
       endDate: "2024-11-14",
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      image : "/img/400px.png"
     },
     {
       id: 2,
@@ -19,7 +20,8 @@ export default function Exhibitions() {
       location: 'Jane Doe',
       startDate: "2024-12-12",
       endDate: "2025-01-14",
-      description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+      description: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      image : "/img/400px.png"
     },
     {
       id: 3,
@@ -27,7 +29,8 @@ export default function Exhibitions() {
       location: 'John Smith',
       startDate: "2025-01-12",
       endDate: "2025-02-14",
-      description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
+      description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      image : "/img/400px.png"
     },
     {
       id: 4,
@@ -35,7 +38,8 @@ export default function Exhibitions() {
       location: 'John Smith',
       startDate: "2024-12-12",
       endDate: "2025-01-14",
-      description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
+      description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      image : "/img/400px.png"
     },
     {
       id: 5,
@@ -43,7 +47,8 @@ export default function Exhibitions() {
       location: 'John Smith',
       startDate: "2024-12-12",
       endDate: "2025-01-14",
-      description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
+      description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      image : "/img/400px.png"
     },
     {
       id: 6,
@@ -51,7 +56,8 @@ export default function Exhibitions() {
       location: 'John Smith',
       startDate: "2024-12-12",
       endDate: "2025-01-14",
-      description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.'
+      description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      image : "/img/400px.png"
     }
   ];
 
@@ -82,7 +88,7 @@ export default function Exhibitions() {
         <title>Exhibitions</title>
         <meta name="description" content="Current and Upcoming Exhibitions" />
       </Head>
-
+      
       <main className="container mx-auto px-4 py-12">
         <div className="flex lg:gap-0 gap-6 flex-wrap justify-between items-center">
         <div className="flex items-center gap-3">
@@ -96,7 +102,7 @@ export default function Exhibitions() {
               <Link key={exhibition.id} href={`/exhibitions/${exhibition.id}`} passHref>
                 <div className="rounded-lg overflow-hidden transition cursor-pointer">
                   <img
-                    src="/img/400px.png"
+                    src={exhibition.image}
                     alt={exhibition.title}
                     className="w-full h-64 object-cover"
                   />

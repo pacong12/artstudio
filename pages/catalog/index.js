@@ -8,42 +8,48 @@ export default function Catalog() {
       title: 'Lorem Ipsum',
       artist: 'Cilacap',
       year: 2024,
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+      image : "/img/400px.png"
     },
     {
       id: 2,
       title: 'Artistic Composition',
       artist: 'Jane Doe',
       year: 2023,
-      description: 'A stunning piece that explores the boundaries of modern art.'
+      description: 'A stunning piece that explores the boundaries of modern art.',
+      image : "/img/400px.png"
     },
     {
       id: 3,
       title: 'Urban Landscape',
       artist: 'John Smith',
       year: 2022,
-      description: 'A powerful representation of contemporary urban life.'
+      description: 'A powerful representation of contemporary urban life.',
+      image : "/img/400px.png"
     },
     {
       id: 4,
       title: 'Modern Abstract',
       artist: 'Emily Clark',
       year: 2021,
-      description: 'An abstract composition full of colors and depth.'
+      description: 'An abstract composition full of colors and depth.',
+      image : "/img/400px.png"
     },
     {
       id: 5,
       title: 'Nature Harmony',
       artist: 'Michael Lee',
       year: 2023,
-      description: 'A serene representation of nature and life.'
+      description: 'A serene representation of nature and life.',
+      image : "/img/400px.png"
     },
     {
       id: 6,
       title: 'Portrait of Time',
       artist: 'Anna Brown',
       year: 2020,
-      description: 'A thoughtful piece reflecting on the concept of time.'
+      description: 'A thoughtful piece reflecting on the concept of time.',
+      image : "/img/400px.png"
     },
   ];
 
@@ -90,7 +96,7 @@ export default function Catalog() {
           <Link key={item.id} href={`/catalog/${item.id}`}>
             <div className="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition cursor-pointer">
               <img
-                src="/img/400px.png"
+                src={item.image}
                 alt={item.title}
                 className="w-full h-64 object-cover"
               />
